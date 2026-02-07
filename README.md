@@ -2,11 +2,11 @@
 因数分解したり、高次代数方程式を解くプログラム
 高精度バージョン５０桁
 
-MethodDka.html
+MethodDka.EXE
 
 Javascript
 
-対応ＯＳ（Windows 11 home 25H2対応, Android15対応)
+対応ＯＳ（Windows 11 home 25H2対応)
 
 MIT ライセンス
 
@@ -14,7 +14,7 @@ MIT ライセンス
 
 メールアドレス　ja142397@s6.dion.ne.jp
 
-試作評価版バージョン6.00
+試作評価版バージョン7.00
 
 1次方程式は中学１年生で解を知り、
 
@@ -31,9 +31,9 @@ MIT ライセンス
 
 このプログラムは、実数係数の高次（1000次迄）の"複素数を含めて"全ての解を”初期値なし”で求める事が出来ます。
 
-git hubからWindows11またはandroid端末にMethodDka.htmlファイルをローカルのOSにダウンロードして
+git hubからWindows11にMethodDka.EXEファイルをローカルのOSにダウンロードして
 
-ブラウザEdgeまたはchromeで開くとスクリプトが実行されて、高次代数方程式を解いたり、因数分解する事が出来ます
+高次代数方程式を解いたり、因数分解する事が出来ます
 
 まず、第１にテキストボックスに最高次数を入力します。
 
@@ -68,6 +68,8 @@ git hubからWindows11またはandroid端末にMethodDka.htmlファイルをロ�
 このプログラムはMicrosoft社edgeのWindows copilotに私のAndroid用のJavaのソースコードをJavaScriptに変換して頂きました
 
 更に、50桁の高精度バージョンにWindows　copilotに変換して頂きました
+
+更に、Windows１１のEXEにバージョンアップして頂きました
 
 Microsoft社様ありがとうございます
 
