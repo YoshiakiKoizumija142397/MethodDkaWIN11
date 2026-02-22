@@ -14,6 +14,10 @@ MIT License
 
 最新版はこちらからダウンロードできます：
 
+※ 初回ダウンロード時、ブラウザが
+「一般的にダウンロードされていません」と警告する場合があります。
+これは新規アプリに対する一般的な注意表示であり、問題はありません。
+
 - [MSI インストーラー（Windows 11）](https://github.com/YoshiakiKoizumija142397/MethodDkaWIN11/releases/latest)
 - [APPX パッケージ（Microsoft Store 互換）](https://github.com/YoshiakiKoizumija142397/MethodDkaWIN11/releases/latest)
 
