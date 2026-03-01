@@ -28,7 +28,8 @@ MIT License
 - 高精度多項式の計算  
 - 1000 次までの多項式に対応  
 - Aberth 法による高速収束  
-- 日本語 / 英語 UI 自動切替  
+- 日本語 / 英語 UI 自動切替
+- 英語版開発中
 - Windows 11 最適化
 
 ---
@@ -40,9 +41,7 @@ MIT License
 - Windows 11 対応
 
 ---
-
-## 📂 リポジトリ構成
-
-
-スケーリングや正規化を行うことで、数値的安定性を向上させることができます。
+• 	English UI is currently under development.
+• 	The English interface is still being tested and may not be fully complete.
+• 	English localization is in progress.
 
