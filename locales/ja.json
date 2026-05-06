@@ -1,0 +1,11 @@
+{
+  "title": "MethodDka (50桁版)",
+  "maxDegree": "最高次数:",
+  "setMaxDegree": "最高次数を設定",
+  "startCalc": "計算開始",
+  "alertInvalid": "1以上の整数の最高次数を入力してください。",
+  "alertZero": "最高次の係数（先頭係数）が 0 です。計算できません。",
+  "alertNoConv": "収束しませんでした。",
+  "alertConv": "収束しました。",
+  "solution": "解"
+}
