@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MethodDka - High Precision</title>
+    <title id="titleText">MethodDka</title>
 
     <style>
         body { font-family: Arial, sans-serif; }
@@ -30,17 +30,17 @@
 
 <body>
 <div class="container">
-    <h1>MethodDka (50桁版)</h1>
+    <h1 id="title"></h1>
 
     <div class="input-field">
-        <label for="maxDegree">最高次数:</label>
+        <label for="maxDegree" id="labelMaxDegree"></label>
         <input type="number" id="maxDegree" />
     </div>
 
-    <button class="button" onclick="createFields()">最高次数を設定</button>
+    <button class="button" id="btnSetMax" onclick="createFields()"></button>
     <div id="coefficients"></div>
 
-    <button class="button" onclick="calculate()">計算開始</button>
+    <button class="button" id="btnCalc" onclick="calculate()"></button>
     <div id="results"></div>
 </div>
 
@@ -50,13 +50,31 @@
     let sr = [];
     let si = [];
     let bSyuusoku = false;
+    let i18n = {};
+
+    // ▼ OS 言語を preload.js から取得
+    const locale = window.localeAPI.getLocale();
+
+    // ▼ JSON 読み込み
+    fetch(`locales/${locale}.json`)
+        .then(res => res.json())
+        .then(json => {
+            i18n = json;
+
+            // UI テキスト反映
+            document.getElementById("title").innerText = i18n.title;
+            document.getElementById("titleText").innerText = i18n.title;
+            document.getElementById("labelMaxDegree").innerText = i18n.maxDegree;
+            document.getElementById("btnSetMax").innerText = i18n.setMaxDegree;
+            document.getElementById("btnCalc").innerText = i18n.startCalc;
+        });
 
     function createFields() {
         const maxDegree = document.getElementById('maxDegree').value.trim();
         n = Number(maxDegree);
 
         if (!Number.isInteger(n) || n < 1) {
-            alert("1以上の整数の最高次数を入力してください。");
+            alert(i18n.alertInvalid);
             return;
         }
 
@@ -67,7 +85,7 @@
             const inputField = document.createElement('div');
             inputField.className = 'input-field';
             inputField.innerHTML =
-                `<label>${n - i}次の係数:</label>
+                `<label>${n - i} : </label>
                  <input type="text" id="coefficient${i}" />`;
             coefficientsDiv.appendChild(inputField);
         }
@@ -85,14 +103,14 @@
         }
 
         if (sa[0].eq(0)) {
-            alert("最高次の係数（先頭係数）が 0 です。計算できません。");
+            alert(i18n.alertZero);
             return;
         }
 
         subroutine();
 
         if (!bSyuusoku) {
-            alert("収束しませんでした。");
+            alert(i18n.alertNoConv);
             return;
         }
 
@@ -100,7 +118,7 @@
             const result = document.createElement('div');
             result.className = 'result';
             result.innerText =
-                `解${i}: 実数部 ${sr[i].toString()}, 虚数部 ${si[i].toString()}`;
+                `${i18n.solution} ${i}:  Real ${sr[i].toString()}, Imag ${si[i].toString()}`;
             resultsDiv.appendChild(result);
         }
     }
@@ -170,7 +188,7 @@
 
             if (!bContinue) {
                 bSyuusoku = true;
-                alert("収束しました。");
+                alert(i18n.alertConv);
                 return;
             }
         }
