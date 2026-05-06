@@ -9,11 +9,20 @@ function createWindow() {
       preload: path.join(process.resourcesPath, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
-      sandbox: false   // ★ これが重要
+      sandbox: false
     }
   });
 
   win.loadFile('index.html');
+
+  // ▼ OS 言語判定（ja / en）
+  const locale = app.getLocale();
+  const isJapanese = locale.startsWith('ja');
+
+  // ▼ help ファイルを自動選択
+  const helpFile = isJapanese
+    ? path.join(process.resourcesPath, 'help', 'help_ja.html')
+    : path.join(process.resourcesPath, 'help', 'help_en.html');
 
   const template = [
     {
@@ -45,7 +54,7 @@ function createWindow() {
               width: 900,
               height: 700
             });
-            helpWin.loadFile(path.join(process.resourcesPath, 'help.html'));
+            helpWin.loadFile(helpFile);
           }
         }
       ]
