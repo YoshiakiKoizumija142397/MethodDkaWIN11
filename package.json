@@ -1,29 +1,32 @@
 {
   "name": "methoddka-app",
   "version": "1.0.0",
-  "description": "MethodDka 50-digit version with i18n support",
+  "description": "MethodDka Electron App",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
   },
-  "author": "Yoshiaki Koizumi",
-  "license": "MIT",
-
   "devDependencies": {
     "electron": "^28.0.0",
     "electron-builder": "^24.13.3"
   },
-
+  "dependencies": {},
   "build": {
     "appId": "com.methoddka.app",
     "productName": "MethodDka",
     "directories": {
       "output": "dist"
     },
+
     "files": [
       "**/*"
     ],
+
+    "asarUnpack": [
+      "preload.js"
+    ],
+
     "extraResources": [
       {
         "from": "help/",
@@ -36,10 +39,12 @@
         "filter": ["**/*"]
       }
     ],
+
     "win": {
       "target": "nsis",
       "icon": "icon.ico"
     },
+
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
