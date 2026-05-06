@@ -1,60 +1,49 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, shell } = require('electron');
 const path = require('path');
+const fs = require('fs');
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 900,
-    height: 700,
+    width: 800,
+    height: 600,
     webPreferences: {
-      preload: path.join(process.resourcesPath, 'preload.js'),
-      nodeIntegration: false,
+      preload: path.join(__dirname, 'preload.js'),   // ← ここが最重要
       contextIsolation: true,
-      sandbox: false
+      nodeIntegration: false
     }
   });
 
   win.loadFile('index.html');
 
-  // ▼ OS 言語判定（ja / en）
-  const locale = app.getLocale();
-  const isJapanese = locale.startsWith('ja');
-
-  // ▼ help ファイルを自動選択
-  const helpFile = isJapanese
-    ? path.join(process.resourcesPath, 'help', 'help_ja.html')
-    : path.join(process.resourcesPath, 'help', 'help_en.html');
+  // メニュー設定
+  const isJapanese = app.getLocale().startsWith('ja');
 
   const template = [
     {
-      label: 'ファイル',
+      label: isJapanese ? 'ファイル' : 'File',
       submenu: [
-        { role: 'quit', label: '終了' }
+        { role: 'quit', label: isJapanese ? '終了' : 'Quit' }
       ]
     },
     {
-      label: '表示',
-      submenu: [
-        { role: 'reload', label: '再読み込み' },
-        { role: 'toggledevtools', label: '開発者ツール' },
-        { type: 'separator' },
-        { role: 'resetzoom', label: 'ズームをリセット' },
-        { role: 'zoomin', label: 'ズームイン' },
-        { role: 'zoomout', label: 'ズームアウト' },
-        { type: 'separator' },
-        { role: 'togglefullscreen', label: '全画面表示' }
-      ]
-    },
-    {
-      label: 'ヘルプ',
+      label: isJapanese ? 'ヘルプ' : 'Help',
       submenu: [
         {
-          label: 'MethodDka ヘルプを開く',
+          label: isJapanese ? 'MethodDka ヘルプを開く' : 'Open MethodDka Help',
           click: () => {
-            const helpWin = new BrowserWindow({
-              width: 900,
-              height: 700
-            });
-            helpWin.loadFile(helpFile);
+            const basePath = app.isPackaged
+              ? process.resourcesPath
+              : __dirname;
+
+            const helpFile = isJapanese
+              ? path.join(basePath, 'help', 'help_ja.html')
+              : path.join(basePath, 'help', 'help_en.html');
+
+            if (fs.existsSync(helpFile)) {
+              shell.openPath(helpFile);
+            } else {
+              console.error('Help file not found:', helpFile);
+            }
           }
         }
       ]
@@ -65,7 +54,13 @@ function createWindow() {
   Menu.setApplicationMenu(menu);
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  createWindow();
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
