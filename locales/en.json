@@ -1,1 +1,11 @@
-
+{
+  "title": "MethodDka (50-digit version)",
+  "maxDegree": "Maximum degree:",
+  "setMaxDegree": "Set maximum degree",
+  "startCalc": "Start calculation",
+  "alertInvalid": "Please enter an integer of 1 or higher.",
+  "alertZero": "The leading coefficient is 0. Calculation cannot proceed.",
+  "alertNoConv": "Did not converge.",
+  "alertConv": "Converged.",
+  "solution": "Solution"
+}
