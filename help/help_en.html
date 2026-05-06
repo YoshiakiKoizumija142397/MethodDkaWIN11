@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MethodDka Help</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color: #f7f7f7;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .section {
+            background: #fff;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>MethodDka Help</h1>
+
+    <div class="section">
+        <h2>Overview</h2>
+        <p>
+            MethodDka is a program designed to perform factorization and solve higher-order algebraic equations.
+            The high-precision version performs calculations with <strong>50-digit precision</strong>.
+        </p>
+
+        <p>
+            Supported file: MethodDka.EXE
+            <br>Supported OS: Windows 11 Home 25H2
+            <br>License: MIT
+            <br>Author: Yoshiaki Koizumi
+            <br>Email: ja142397@s6.dion.ne.jp
+            <br>Prototype Evaluation Version: Version 7.00
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Mathematical Background</h2>
+        <p>
+            Linear equations are learned in the first year of junior high school, and quadratic equations in the third year.
+            Cubic and higher-order equations can be solved using Cardano’s formula or numerical methods such as the
+            Lagrange method or Newton’s method. For fourth-order and higher equations, numerical analysis is essential
+            except in special cases.
+        </p>
+
+        <p>
+            Many programs require initial values or can only find real solutions.
+            MethodDka can find <strong>all complex roots of high-degree (up to 1000th degree) polynomials with real coefficients,
+            without requiring any initial values</strong>.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>How to Use</h2>
+        <ol>
+            <li>Enter the highest degree.</li>
+            <li>The coefficient input boxes will appear.</li>
+            <li>Enter the real-number coefficients from the highest degree downward.</li>
+            <li>If a degree does not exist, <strong>you must enter 0</strong> (cannot be omitted).</li>
+            <li>If a coefficient is +1, enter “1”; if -1, enter “-1”.</li>
+        </ol>
+
+        <p>The significant digits of the solutions are approximately 50 digits.</p>
+    </div>
+
+    <div class="section">
+        <h2>Notes</h2>
+        <p>
+            The author assumes no responsibility for any issues arising from the use of this program.
+            Please use it at your own risk and verify results when necessary.
+        </p>
+
+        <p>This software is a prototype evaluation version and is provided as freeware.</p>
+    </div>
+
+    <div class="section">
+        <h2>Technical Background (About the DKA Method)</h2>
+        <p>Typical factors that cause the Durand–Kerner–Aberth (DKA) method to fail or converge poorly:</p>
+
+        <ul>
+            <li>
+                <strong>Inappropriate initial value selection</strong>
+                → If multiple roots exist, the denominator approaches zero and becomes unstable.
+            </li>
+
+            <li>
+                <strong>Presence of closely spaced roots</strong>
+                → Strong interactions between roots slow convergence.
+            </li>
+
+            <li>
+                <strong>Extreme coefficient scaling</strong>
+                → Initial radius estimation becomes inaccurate.
+            </li>
+
+            <li><strong>Insufficient iteration count or tolerance settings</strong></li>
+
+            <li>
+                <strong>Accumulation of rounding errors</strong>
+                → Particularly significant in complex-number calculations.
+            </li>
+        </ul>
+
+        <h3>Tips for Improvement</h3>
+        <ul>
+            <li>Using Aberth’s initial values greatly improves convergence.</li>
+            <li>For closely spaced roots, combining with methods like Jenkins–Traub is effective.</li>
+            <li>Scaling and normalizing coefficients improves stability.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Acknowledgments</h2>
+        <p>I express deep gratitude to the teachers who taught me mathematics and to the authors of numerical analysis books.</p>
+
+        <p>
+            This program was converted from Android Java source code to JavaScript
+            using Microsoft Edge Windows Copilot, then improved into a 50-digit high-precision version,
+            and further enhanced into a Windows 11 executable.
+            I sincerely thank Microsoft Corporation.
+        </p>
+    </div>
+
+</body>
+</html>
