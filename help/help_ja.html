@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>MethodDka ヘルプ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color: #f7f7f7;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .section {
+            background: #fff;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>MethodDka ヘルプ</h1>
+
+    <div class="section">
+        <h2>概要</h2>
+        <p>
+            MethodDka は、因数分解や高次代数方程式を解くためのプログラムです。
+            高精度バージョンでは <strong>50桁精度</strong>で計算を行います。
+        </p>
+
+        <p>
+            対応ファイル：MethodDka.EXE
+            
+            <br>対応 OS：Windows 11 Home 25H2
+            <br>ライセンス：MIT
+            <br>作者：小泉嘉章
+            <br>メール：ja142397@s6.dion.ne.jp
+            <br>試作評価版：Version 7.00
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>数学的背景</h2>
+        <p>
+            1次方程式は中学1年、2次方程式は中学3年で解法を学びます。
+            3次方程式以上はカルダノの公式や数値解析（ラグランジュ法、ニュートン法）で求められますが、
+            4次以上は特殊な場合を除き数値解析が必須です。
+        </p>
+
+        <p>
+            一般的なプログラムは初期値が必要だったり、実数解しか求められないことが多いですが、
+            MethodDka は <strong>実数係数の高次（最大1000次）多項式の複素数解を、初期値なしで全て求める</strong>ことができます。
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>使い方</h2>
+        <ol>
+            <li>最高次数を入力します。</li>
+            <li>係数入力ボックスが表示されます。</li>
+            <li>高い次数から順に実数係数を入力してください。</li>
+            <li>次数が存在しない場合は <strong>必ず 0 を入力</strong>してください（省略不可）。</li>
+            <li>係数が +1 の場合は「1」、-1 の場合は「-1」と入力してください。</li>
+        </ol>
+
+        <p>解の有効数字は約 50 桁です。</p>
+    </div>
+
+    <div class="section">
+        <h2>注意事項</h2>
+        <p>
+            本プログラムを使用して生じた問題について、作者は一切の責任を負いません。
+            必ず各自の責任で使用し、必要に応じて検算を行ってください。
+        </p>
+
+        <p>本ソフトは試作評価版のためフリーソフトとします。</p>
+    </div>
+
+    <div class="section">
+        <h2>技術的背景（DKA 法について）</h2>
+        <p>DKA 法（Durand–Kerner–Aberth 法）が収束しない、または困難になる典型的な要因：</p>
+
+        <ul>
+            <li>
+                <strong>初期値の選定が不適切</strong>
+                → 重根があると分母がゼロに近づき不安定。
+            </li>
+
+            <li>
+                <strong>近接する根の存在</strong>
+                → 根同士の相互作用が強くなり収束が遅くなる。
+            </li>
+
+            <li>
+                <strong>係数のスケールが極端</strong>
+                → 初期値半径の推定が不正確になる。
+            </li>
+
+            <li><strong>反復回数・許容誤差の設定不足</strong></li>
+
+            <li>
+                <strong>丸め誤差の蓄積</strong>
+                → 複素数演算では特に顕著。
+            </li>
+        </ul>
+
+        <h3>改善のヒント</h3>
+        <ul>
+            <li>Aberth の初期値を用いると収束性が大幅に改善。</li>
+            <li>近接根がある場合は Jenkins–Traub 法などとの併用も有効。</li>
+            <li>係数のスケーリング・正規化で安定性向上。</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>謝辞</h2>
+        <p>算数・数学を教えてくださった恩師、数値解析の書籍の著者の方々に深く感謝いたします。</p>
+
+        <p>
+            本プログラムは、Microsoft Edge の Windows Copilot により
+            Android 用 Java ソースコードから JavaScript へ変換され、
+            さらに 50 桁高精度版へと改良されました。
+             さらにWindows11のEXEに改良されました
+            Microsoft 社様に感謝申し上げます。
+        </p>
+    </div>
+
+</body>
+</html>
