@@ -1,52 +1,38 @@
 {
   "name": "methoddka-app",
   "version": "1.0.0",
-  "description": "MethodDka Electron App",
+  "description": "MethodDka for Windows 11",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
   },
+  "author": "Yoshiaki Koizumi",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^28.0.0",
+    "electron": "^28.3.3",
     "electron-builder": "^24.13.3"
   },
   "dependencies": {},
   "build": {
-    "appId": "com.methoddka.app",
-    "productName": "MethodDka",
-    "directories": {
-      "output": "dist"
-    },
-
+    "asar": false,
     "files": [
-      "**/*"
+      "**/*",
+      "locales/**/*",
+      "help/**/*"
     ],
-
-    "asarUnpack": [
-      "preload.js"
-    ],
-
-    "extraResources": [
-      {
-        "from": "help/",
-        "to": "help",
-        "filter": ["**/*"]
-      },
-      {
-        "from": "locales/",
-        "to": "locales",
-        "filter": ["**/*"]
-      }
-    ],
-
+    "directories": {
+      "buildResources": "build"
+    },
     "win": {
-      "target": "nsis",
+      "target": [
+        "nsis"
+      ],
       "icon": "icon.ico"
     },
-
     "nsis": {
       "oneClick": false,
+      "perMachine": false,
       "allowToChangeInstallationDirectory": true
     }
   }
