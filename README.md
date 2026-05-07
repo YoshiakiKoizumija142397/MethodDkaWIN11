@@ -1,47 +1,70 @@
-# MethodDka for Windows 11
 
-高精度多項式計算ツール **MethodDka** の Windows 版です。  
-Aberth 法による高速収束と高精度演算を特徴としています。
+MethodDka for Windows 11
+高精度多項式計算ツール MethodDka の Windows 版です。
+Aberth 法による高速収束と高精度演算を特徴とし、
+最大 1000 次の多項式まで扱える高機能計算アプリケーションです。
 
----
-
-## 📄 ライセンス
-
+📄 ライセンス
 MIT License
----
 
-## 📥 ダウンロード
+📥 ダウンロード
+最新版の Windows 版は以下から入手できます：
 
-最新版はこちらからダウンロードできます：
+MSI インストーラー（Windows 11）
 
-※ 初回ダウンロード時、ブラウザが
-「一般的にダウンロードされていません」と警告する場合があります。
-これは新規アプリに対する一般的な注意表示であり、問題はありません。
+APPX パッケージ（Microsoft Store 互換）
 
-- [MSI インストーラー（Windows 11）](https://github.com/YoshiakiKoizumija142397/MethodDkaWIN11/releases/latest)
-- [APPX パッケージ（Microsoft Store 互換）](https://github.com/YoshiakiKoizumija142397/MethodDkaWIN11/releases/latest)
+⚠ 初回ダウンロード時の注意  
+Windows SmartScreen やブラウザが
+「一般的にダウンロードされていません」
+と警告する場合があります。
+これは新規アプリに対する一般的な注意表示であり、問題ありません。
 
----
+📘 主な機能
+🔹 高精度多項式計算
+最大 1000 次までの多項式に対応
 
-## 📘 機能
+高精度浮動小数点演算
 
-- 高精度多項式の計算  
-- 1000 次までの多項式に対応  
-- Aberth 法による高速収束  
-- 日本語 / 英語 UI 自動切替
-- 英語版開発中
-- Windows 11 最適化
+収束性の高い Aberth 法 を採用
 
----
+🔹 多言語対応（i18n）
+日本語 / 英語 UI 自動切替
 
-## 🛠 開発環境
+英語版は現在開発中
 
-- Electron / Node.js  
-- electron-builder による MSI / APPX ビルド  
-- Windows 11 対応
+ローカライズファイル（locales/ja.json, locales/en.json）による柔軟な翻訳管理
 
----
-• 	English UI is currently under development.
-• 	The English interface is still being tested and may not be fully complete.
-• 	English localization is in progress.
+🔹 Windows 11 最適化
+Windows 11 の UI/UX に合わせた設計
 
+Electron によるクロスプラットフォーム基盤
+
+高 DPI 環境での表示最適化
+
+🛠 開発環境
+Electron / Node.js
+
+electron-builder による MSI / APPX ビルド
+
+Windows 11 対応
+
+GitHub 連携（main / feature / develop ブランチ運用）
+
+🧪 ビルド方法（開発者向け）
+コード
+npm install
+npm run build
+出力物は dist/ フォルダに生成されます。
+
+▶ 実行方法（開発者向け）
+コード
+npm start
+Electron アプリとして起動します。
+
+🌐 English Version (Work in Progress)
+English UI is currently under development
+
+The English interface is still being tested
+
+English localization is in progress
