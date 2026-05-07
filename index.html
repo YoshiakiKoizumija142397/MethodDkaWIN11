@@ -55,6 +55,9 @@
     // ▼ OS 言語を preload.js から取得
     const locale = window.localeAPI.getLocale();
 
+    // ▼ HTML の lang 属性を変更
+    document.documentElement.lang = locale;
+
     // ▼ JSON 読み込み
     fetch(`locales/${locale}.json`)
         .then(res => res.json())
@@ -84,9 +87,15 @@
         for (let i = 0; i <= n; i++) {
             const inputField = document.createElement('div');
             inputField.className = 'input-field';
+
+            // ▼ i18n 対応：係数ラベル
+            const degree = n - i;
+            const labelText = i18n.coefficientLabel.replace("{deg}", degree);
+
             inputField.innerHTML =
-                `<label>${n - i} : </label>
+                `<label>${labelText}</label>
                  <input type="text" id="coefficient${i}" />`;
+
             coefficientsDiv.appendChild(inputField);
         }
     }
