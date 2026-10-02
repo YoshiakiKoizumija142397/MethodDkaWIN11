@@ -1,4 +1,11 @@
 # MethodDka for Windows 11
+これは旧版で非推奨です
+最新のWindows11のMSIインストーラ版リポジトリは
+MethodDkaWindows11
+です
+よろしくお願いいたします。
+
+記録のために残しています
 
 高精度多項式計算ツール **MethodDka** の Windows 版です。  
 Aberth 法による高速収束と高精度演算を特徴としています。
